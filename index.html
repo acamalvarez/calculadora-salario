@@ -23,14 +23,16 @@
         <label for="salary"><strong>Salario</strong></label>
         
         <input id="salaryMonth" type="number" value=908526 min="0" onblur="calcularSalario()">
+        <br><br>
+        <label for="startDate"><strong>Fecha de inicio de la quincena</strong></label>
+        <br>
         <input id="startDate" type="date" onblur="verQuincena()">
 
         <button id="salary-button" onclick="verQuincena()">Ver quincena</button>
         <br><br>
 
         <p id="explanation" hidden>
-            Llene los días trabajados con la hora de comienzo y el número de horas
-            trabajadas.
+            Llene lo siguiente las horas de comienzo y el número de horas trabajadas cada día.
         </p>
 
 
