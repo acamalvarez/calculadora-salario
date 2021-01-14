@@ -1,0 +1,44 @@
+.wrapper {
+    width: 60%;
+    margin: auto;
+}
+
+.title-container {
+    display: grid;
+    grid-template-columns: 25% 20% 20%;
+    grid-gap: 1em;
+}
+
+.form-days {
+    display: grid;
+    grid-template-columns: 25% 20% 20%;
+    grid-gap: 1em;
+}
+
+.form-input-date {
+    width: 130px;
+}
+
+.form-input-startHour {
+    width: 40px;
+}
+
+.form-input-numHours {
+    width: 40px;
+}
+
+@media screen and (max-width: 830px) {
+
+    #salary-button {
+        display: block;
+    }
+    .title-container {
+        display: none;
+    }
+    .form-days {
+        grid-template-columns: 1fr;
+    }
+    label {
+        display: block;
+    }
+}

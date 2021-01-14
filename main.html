@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <script type="text/javascript" src="salary.js"></script>
+    <link rel="stylesheet" href="style.css">
+
+    <title>Cálculo de Salario</title>
+    
+</head>
+<body>
+
+    <div class="wrapper">
+        <h1>Calcule su salario</h1>
+        <p>
+            Digite su salario básico mensual y la fecha de inicio de la quincena
+             que quiere calcular.
+        </p>
+
+        <label for="salary"><strong>Salario</strong></label>
+        
+        <input id="salaryMonth" type="number" value=908526 min="0" onblur="calcularSalario()">
+        <input id="startDate" type="date" onblur="verQuincena()">
+
+        <button id="salary-button" onclick="verQuincena()">Ver quincena</button>
+        <br><br>
+
+        <p id="explanation" hidden>
+            Llene los días trabajados con la hora de comienzo y el número de horas
+            trabajadas.
+        </p>
+
+
+        <div class="title-container" id="title-container" hidden>
+
+        </div>
+        <br>
+
+        <div class="form-days" id="form-days">
+
+        </div>
+
+        <br>
+        <button id="calculate-button" onclick="calcularSalario()" hidden>Calcular</button>
+
+        <p id="result"></p>
+
+
+
+    </div>
+
+
+    <script>
+        function initialDate(date) {
+            let year = date.getFullYear();
+            let month = date.getMonth() + 1;
+            if (month < 10) {
+                month = "0" + month;
+            }
+            let day = date.getDate();
+            if (day < 16) {
+                day = "01";
+            }
+            else {
+                day = "15"
+            }
+            return year+"-"+month+"-"+day;
+}
+        var today = new Date();
+        var todayInput = initialDate(today);
+        document.getElementById("startDate").value = todayInput;
+    </script>
+
+</body>
+</html>
