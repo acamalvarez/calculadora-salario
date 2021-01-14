@@ -258,11 +258,14 @@ function calcularSalario() {
 
     salarioTotal = (pagoHoras + salaryQuincena) * 0.92 + auxilioTransporteQuincena;
 
+    var message = "Su salario aproximado será de " + salarioTotal.toFixed(0);
+
      if (isNaN(salarioTotal) == true) {
         document.getElementById("result").innerHTML = "Su salario aproximado será de " + "<strong>0</strong>.";
      }
      else {
-         document.getElementById("result").innerHTML = "Su salario aproximado será de " + "<strong>" + salarioTotal.toFixed(0) + "</strong>.";
+        document.getElementById("result").innerHTML = message;
+        alert(message);
      }
 
 }

@@ -4,26 +4,27 @@
 }
 
 .wrapper {
-    width: 30%;
+    width: 50%;
     margin: auto;
 }
 
 input {
     width: 100%;
     padding: 5px 5px;
-    margin: 0px 0;
+    margin: 0px 15px 15px 0px;
     display: inline-block;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
 }
 
+
 button {
     width: 100%;
     background-color: #2891e7;
     color: white;
     padding: 14px 20px;
-    margin: 12px 0;
+    margin: 8px 0;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -41,18 +42,6 @@ button {
     grid-gap: 1em;
 }
 
-.form-input-date {
-    width: 150px;
-}
-
-.form-input-startHour {
-    width: 50px;
-}
-
-.form-input-numHours {
-    width: 50px;
-}
-
 @media screen and (max-width: 950px) {
 
     #salary-button {
@@ -63,8 +52,9 @@ button {
     }
     .form-days {
         grid-template-columns: 1fr;
+        grid-gap: 0mm;
     }
     label {
-        display: block;
+        display: inline;
     }
 }
