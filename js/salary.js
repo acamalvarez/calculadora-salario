@@ -120,7 +120,7 @@ function verQuincena() {
         document.getElementById("form-days").innerHTML += 
         "<label hidden><strong>Día</strong></label><input class='form-input-date' type='date' value="+finalDate+" id="+dateId + " readonly>" + 
         "<label hidden><strong>Hora comienzo</strong></label><input class='form-input-startHour' type='number' value=6 min='0' max='23' id="+startHourId+">"+
-        "<label hidden><strong>Horas trabajadas</strong></label><input class='form-input-numHours' type='number' value=8 min='0' max='12' step='1' id="+numHoursId+"><hr>";
+        "<label hidden><strong>Horas trabajadas</strong></label><input class='form-input-numHours' type='number' value=8 min='0' max='12' step='1' id="+numHoursId+">";
     }
 
     
