@@ -240,8 +240,8 @@ function calcularSalario() {
         }
 
     var auxilioTransporteMonth = 106454;
-    var auxilioTransporteQuincena = auxilioTransporteMonth / 2;
-    // var auxilioTransporteDia = auxilioTransporteMonth / 30;
+    // var auxilioTransporteQuincena = auxilioTransporteMonth / 2;
+    var auxilioTransporteDia = auxilioTransporteMonth / 30;
     // var auxilioTransporteHora = auxilioTransporteMonth / 240;
 
     var salaryQuincena = salaryMonth / 2;
@@ -252,11 +252,11 @@ function calcularSalario() {
     // var pension = salaryQuincena * 0.04;
     // var saludPension = salud + pension;
 
-    pagoHoras = salaryHour * valorHoras;
-    // pagoDias = salaryDay * quincena.length;
-    // pagoDiasTransporte = auxilioTransporteDia * quincena.length;
+    var pagoHoras = salaryHour * valorHoras;
+    var pagoDias = salaryDay * quincena.length;
+    // var pagoDiasTransporte = auxilioTransporteDia * quincena.length;
 
-    salarioTotal = (pagoHoras + salaryQuincena) * 0.92 + auxilioTransporteQuincena;
+    salarioTotal = (pagoHoras + pagoDias) * 0.92 + auxilioTransporteDia * quincena.length;
 
     var message = "Su salario aproximado será de " + salarioTotal.toFixed(0);
 
@@ -264,7 +264,7 @@ function calcularSalario() {
         document.getElementById("result").innerHTML = "Su salario aproximado será de " + "<strong>0</strong>.";
      }
      else {
-        document.getElementById("result").innerHTML = message;
+        document.getElementById("result").innerHTML = "Su salario aproximado será de <strong>" + salarioTotal.toFixed(0) + "</strong>.";
         alert(message);
      }
 

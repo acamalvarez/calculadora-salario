@@ -1,8 +1,3 @@
-.wrapper-text {
-    width: 70%;
-    margin: auto;
-}
-
 .wrapper {
     width: 50%;
     margin: auto;
@@ -47,9 +42,15 @@ button {
     #salary-button {
         display: block;
     }
+
     .title-container {
         display: none;
     }
+
+    .wrapper {
+        width: 60%;
+    }
+
     .form-days {
         grid-template-columns: 1fr;
         grid-gap: 0mm;

@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
     <script type="text/javascript" src="js/salary.js"></script>
     <link rel="stylesheet" href="css/style.css">
 
@@ -13,7 +12,7 @@
 </head>
 <body>
 
-    <div class="wrapper-text">
+    <div class="wrapper">
         <h1>Calcule su salario quincenal</h1>
         <p>
             Digite su salario básico mensual y la fecha de inicio de la quincena
@@ -22,9 +21,6 @@
 
     </div>
         
-
-
-
     <div class="wrapper">
         <label for="salary"><strong>Salario</strong></label>
         <input id="salaryMonth" type="number" value=908526 min="0" onblur="calcularSalario()">
@@ -37,16 +33,12 @@
 
     </div>
 
-    <div class="wrapper-text">
+    <div class="wrapper">
         <p id="explanation" hidden>
         Llene lo siguiente las horas de comienzo y el número de horas trabajadas cada día.
         </p>
 
     </div>
-
-
-        
-
 
     <div class="wrapper">
         <div class="title-container" id="title-container" hidden>
@@ -64,14 +56,6 @@
         <p id="result"></p>
 
     </div>
-
-
-        
-
-
-
-    
-
 
     <script>
         function initialDate(date) {
