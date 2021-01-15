@@ -258,13 +258,13 @@ function calcularSalario() {
 
     salarioTotal = (pagoHoras + pagoDias) * 0.92 + auxilioTransporteDia * quincena.length;
 
-    var message = "Su salario aproximado será de " + salarioTotal.toFixed(0);
+    var message = "Su salario será de aproximadamente " + salarioTotal.toFixed(0);
 
      if (isNaN(salarioTotal) == true) {
-        document.getElementById("result").innerHTML = "Su salario aproximado será de " + "<strong>0</strong>.";
+        document.getElementById("result").innerHTML = "Su salario será de aproximadamente " + "<strong>0</strong>.";
      }
      else {
-        document.getElementById("result").innerHTML = "Su salario aproximado será de <strong>" + salarioTotal.toFixed(0) + "</strong>.";
+        document.getElementById("result").innerHTML = "Su salario será de aproximadamente <strong>" + salarioTotal.toFixed(0) + "</strong>.";
         alert(message);
      }
 
