@@ -12,7 +12,7 @@ var horasNoche = [21, 22, 23, 0, 1, 2, 3, 4, 5];
 var costHours = {
     'ordinaria':1, 
     'extra_diurna':1.25, 
-    'recargo_nocturno':1.35, 
+    'recargo_nocturno':0.35, 
     'extra_nocturna':1.75, 
     'dominical_diurna':1.75, 
     'extra_dominical_diurna':2.0, 
@@ -200,6 +200,7 @@ function calcularSalario() {
 };
 
     var salaryMonth = parseFloat(document.getElementById("salaryMonth").value);
+    var auxilioTransporteMonth = parseFloat(document.getElementById("auxilioTransporte").value);
 
     valorHoras = 0;
 
@@ -227,7 +228,7 @@ function calcularSalario() {
 
     }
 
-    horasOrdinarias = sumTotalTipoHora['ordinaria'];
+    var horasOrdinarias = sumTotalTipoHora['ordinaria'];
 
     for (const [key, value] of Object.entries(sumTotalTipoHora)) {
         if (key != 'ordinaria') {
@@ -239,7 +240,6 @@ function calcularSalario() {
         valorHoras += sumCostHoursTotal[key];
         }
 
-    var auxilioTransporteMonth = 106454;
     // var auxilioTransporteQuincena = auxilioTransporteMonth / 2;
     var auxilioTransporteDia = auxilioTransporteMonth / 30;
     // var auxilioTransporteHora = auxilioTransporteMonth / 240;
