@@ -37,7 +37,7 @@
 
     <div class="wrapper">
         <p id="explanation" hidden>
-        Llene lo siguiente las horas de comienzo y el número de horas trabajadas cada día.
+        Llene lo siguiente las horas de comienzo y el número de horas trabajadas cada día. Recuerde sumar el número de horas si trabajó domingos o festivos con compensatorio.
         </p>
 
         <div class="title-container" id="title-container" hidden>
@@ -48,9 +48,15 @@
         <div class="form-days" id="form-days">
 
         </div>
+        <br>
+
+        <div hidden class="compensatorio" id="compensatorio">
+            <label><strong>Número de horas con compensatorio</strong></label><input type="number" min="0" value="0" id="compensatorioValue" onblur="verificarCompensatorio()">
+        </div>
+
 
         <br>
-        <button id="calculate-button" onclick="calcularSalario()" hidden>Calcular</button>
+        <button id="calculate-button" onclick="calcularSalario(), alertMessage()" hidden>Calcular</button>
 
         <p id="result"></p>
 

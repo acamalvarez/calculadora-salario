@@ -117,13 +117,14 @@ function verQuincena() {
         var dateId = "date" + i;
         var startHourId = "startHour" + i;
         var numHoursId = "numHours" + i;
+        var compensatorioId = "compensatorio" + i;
         document.getElementById("form-days").innerHTML += 
         "<label hidden><strong>Día</strong></label><input class='form-input-date' type='date' value="+finalDate+" id="+dateId + " readonly>" + 
         "<label hidden><strong>Hora comienzo</strong></label><input class='form-input-startHour' type='number' value=6 min='0' max='23' id="+startHourId+">"+
         "<label hidden><strong>Horas trabajadas</strong></label><input class='form-input-numHours' type='number' value=8 min='0' max='12' step='1' id="+numHoursId+">";
     }
 
-    
+    document.getElementById("compensatorio").hidden = false;
     document.getElementById("calculate-button").hidden = false;
 
 }
@@ -240,6 +241,8 @@ function calcularSalario() {
         valorHoras += sumCostHoursTotal[key];
         }
 
+    var totalHorasDominicales = sumTotalTipoHora['dominical_diurna'] + sumTotalTipoHora['dominical_nocturna'];
+
     // var auxilioTransporteQuincena = auxilioTransporteMonth / 2;
     var auxilioTransporteDia = auxilioTransporteMonth / 30;
     // var auxilioTransporteHora = auxilioTransporteMonth / 240;
@@ -254,18 +257,42 @@ function calcularSalario() {
 
     var pagoHoras = salaryHour * valorHoras;
     var pagoDias = salaryDay * quincena.length;
-    // var pagoDiasTransporte = auxilioTransporteDia * quincena.length;
+    var pagoDiasTransporte = auxilioTransporteDia * quincena.length;
 
-    salarioTotal = (pagoHoras + pagoDias) * 0.92 + auxilioTransporteDia * quincena.length;
+    var compensatorio = document.getElementById("compensatorioValue").value;
+    var valorHorasCompensatorio = compensatorio * salaryHour;
+
+    salarioTotal = (pagoHoras + pagoDias - valorHorasCompensatorio) * 0.92 + pagoDiasTransporte;
 
     var message = "Su salario será de aproximadamente " + salarioTotal.toFixed(0);
 
-     if (isNaN(salarioTotal) == true) {
-        document.getElementById("result").innerHTML = "Su salario será de aproximadamente " + "<strong>0</strong>.";
-     }
-     else {
-        document.getElementById("result").innerHTML = "Su salario será de aproximadamente <strong>" + salarioTotal.toFixed(0) + "</strong>.";
-        alert(message);
-     }
+    if (isNaN(salarioTotal) == true) {
+       document.getElementById("result").innerHTML = "Su salario será de aproximadamente " + "<strong>0</strong>.";
+    }
+    else {
+       document.getElementById("result").innerHTML = "Su salario será de aproximadamente <strong>" + salarioTotal.toFixed(0) + "</strong>.";
+    }
 
+    return [totalHorasDominicales, message];
+
+}
+
+function verificarCompensatorio() {
+    let calculoSalario = calcularSalario();
+    let compensatorio = document.getElementById("compensatorioValue").value;
+
+    if (compensatorio > calculoSalario[0]) {
+        alert("El número de horas con compensatorio no debe ser mayor al número de horas dominicales.");
+        document.getElementById("calculate-button").hidden = true;
+    }
+    else {
+        document.getElementById("calculate-button").hidden = false;
+    }
+
+}
+
+function alertMessage() {
+    let calculoSalario = calcularSalario();
+    let message = calculoSalario[1];
+    alert(message);
 }
